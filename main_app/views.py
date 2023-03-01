@@ -1,12 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-guitars = [
-    {'brand': 'Gibson', 'typePickups': 'humbucker'},
-    {'brand': 'Strat', 'typePickups': 'single coil'},
-]
-
-
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -16,6 +10,6 @@ def about(request):
 
 def guitars_index(request):
     return render(request, 'guitars/index.html', {
-        'guitars': guitars        
+        'guitars': ex        
     })
 
