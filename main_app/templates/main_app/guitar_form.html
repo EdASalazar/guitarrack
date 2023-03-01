@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Add a Guitar</h1>
-
+    {% if object %}
+        <h1>Edit <span class="pink-text">{{ object.make }}</span></h1>
+    {% else %}
+        <h1>Add a Guitar</h1>
+    {% endif %}
     <form action="" method="POSt">
         {% csrf_token %}
         <table>

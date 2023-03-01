@@ -9,4 +9,4 @@ class Guitar(models.Model):
     def __str__(self):
         return f'{self.brand} {self.make}'
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'cat:id': self.id})
+        return reverse('detail', kwargs={'guitar_id': self.id})
