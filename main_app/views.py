@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Guitar
 
 # Create your views here.
@@ -22,3 +22,12 @@ def guitars_detail(request, guitar_id):
 class GuitarCreate(CreateView):
     model = Guitar
     fields = '__all__'
+
+class GuitarUpdate(UpdateView):
+    model = Guitar
+    fields = ['make', 'color']
+
+class GuitarDelete(DeleteView):
+    model = Guitar
+    success_url = '/cats'
+
