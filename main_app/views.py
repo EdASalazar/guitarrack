@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 guitars = [
-    {'name': 'Gibson', 'bridge_pickup': 'humbucker'},
-    {'name': 'Strat', 'bridge_pickup': 'single coil'},
+    {'brand': 'Gibson', 'typePickups': 'humbucker'},
+    {'brand': 'Strat', 'typePickups': 'single coil'},
 ]
 
 
