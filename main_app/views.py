@@ -29,5 +29,5 @@ class GuitarUpdate(UpdateView):
 
 class GuitarDelete(DeleteView):
     model = Guitar
-    success_url = '/cats'
+    success_url = '/guitars'
 

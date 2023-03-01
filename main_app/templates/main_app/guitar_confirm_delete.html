@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Delete Guitar</h1>
+    <h1>Smash Your Guitar</h1>
     <h4>Are you sure you want to delete <span class="pink-text">{{ object.make }}</span></h4>
 
     <form action="" method='POST'>
         {% csrf_token %}
-        <input type="submit" value="OK Townshend" class="but">
+        <input type="submit" value="OK Townshend" class="btn">
         <a href="{% url 'detail' guitar.id %}">Cancel</a>
     </form>
 {% endblock %}
