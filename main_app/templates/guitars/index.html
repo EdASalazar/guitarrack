@@ -5,10 +5,13 @@
 
 {% for guitar in guitars %}
     <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{ guitar.brand }}</span>
-            <p>Pick Ups: {{ guitar.typePickups }}</p>
-        </div>
+        <a href="/guitars/{{ guitar.id }}">
+            <div class="card-content">
+                <span class="card-title">{{ guitar.brand }}</span>
+                <p>Model: {{ guitar.make }}</p>
+                <p>Color: {{ guitar.color }}</p>
+            </div>
+        </a>
     </div>
 {% endfor %}
 
