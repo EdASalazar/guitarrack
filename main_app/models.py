@@ -19,13 +19,13 @@ class Guitar(models.Model):
         return reverse('detail', kwargs={'guitar_id': self.id})
     
 class Restringing(models.Model):
-    date = models.DateField()
-    restring = models.CharField(
+    date = models.DateField('Date Changed')
+    String = models.CharField(
         max_length=2,
         choices=STRINGS,
         default=STRINGS[0][0]
         )
     guitar = models.ForeignKey(Guitar, on_delete=models.CASCADE)
     def __str__(self):
-        return f"{self.get_restring_display()} on {self.date}"
+        return f"{self.get_string_display()} on {self.date}"
     
