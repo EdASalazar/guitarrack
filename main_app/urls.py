@@ -8,5 +8,6 @@ urlpatterns = [
     path('guitars/<int:guitar_id>/', views.guitars_detail, name='detail'),
     path('guitars/create/', views.GuitarCreate.as_view(), name='guitars_create'),
     path('guitars/<int:pk>/update/', views.GuitarUpdate.as_view(), name='guitars_update'),
-    path('guitars/<int:pk>/delete/', views.GuitarDelete.as_view(), name='guitars_delete')
+    path('guitars/<int:pk>/delete/', views.GuitarDelete.as_view(), name='guitars_delete'),
+    path('guitars/<int:guitar_id>/add_strings/', views.add_strings, name='add_strings')
 ]

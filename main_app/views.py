@@ -34,3 +34,5 @@ class GuitarDelete(DeleteView):
     model = Guitar
     success_url = '/guitars'
 
+def add_strings(request, guitar_id):
+    pass
