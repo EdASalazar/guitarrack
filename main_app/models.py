@@ -25,6 +25,7 @@ class Restringing(models.Model):
         choices=STRINGS,
         default=STRINGS[0][0]
         )
+    cat = models.ForeignKey(Guitar, on_delete=models.CASCADE)
     def __str__(self):
         return f"{self.get_restring_display()} on {self.date}"
     
