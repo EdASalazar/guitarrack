@@ -20,7 +20,7 @@ class Guitar(models.Model):
     
 class Restringing(models.Model):
     date = models.DateField('Date Changed')
-    String = models.CharField(
+    string = models.CharField(
         max_length=2,
         choices=STRINGS,
         default=STRINGS[0][0]
