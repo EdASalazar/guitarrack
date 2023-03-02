@@ -17,6 +17,12 @@
     </div>
   </div>
   <div class="col s6">
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ restringing_form.as_p }}
+      <input type="submit" class="btn" value="Shiny New Strings">
+    </form>
+
     <table class="striped">
       <thead>
         <tr><th>Date</th><th>String</th></tr>

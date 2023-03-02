@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Guitar
+from .forms import RestringingForm
 
 # Create your views here.
 def home(request):
@@ -17,7 +18,9 @@ def guitars_index(request):
 
 def guitars_detail(request, guitar_id):
     guitar = Guitar.objects.get(id=guitar_id)
-    return render(request, 'guitars/detail.html', { 'guitar': guitar })
+    restringing_form = RestringingForm()
+    return render(request, 'guitars/detail.html', 
+                  { 'guitar': guitar, 'restringing_form': restringing_form })
 
 class GuitarCreate(CreateView):
     model = Guitar
