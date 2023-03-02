@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Guitar
+from django.views.generic import ListView
+from .models import Guitar, Pedal
 from .forms import RestringingForm
 
 # Create your views here.
@@ -41,3 +42,7 @@ def add_strings(request, guitar_id):
         new_strings.guitar_id = guitar_id
         new_strings.save()
     return redirect('detail', guitar_id=guitar_id)
+
+
+class PedalList(ListView):
+    model = Pedal

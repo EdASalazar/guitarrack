@@ -9,5 +9,6 @@ urlpatterns = [
     path('guitars/create/', views.GuitarCreate.as_view(), name='guitars_create'),
     path('guitars/<int:pk>/update/', views.GuitarUpdate.as_view(), name='guitars_update'),
     path('guitars/<int:pk>/delete/', views.GuitarDelete.as_view(), name='guitars_delete'),
-    path('guitars/<int:guitar_id>/add_strings/', views.add_strings, name='add_strings')
+    path('guitars/<int:guitar_id>/add_strings/', views.add_strings, name='add_strings'),
+    path('pedals/', views.PedalList.as_view(), name='pedals_index'),
 ]
