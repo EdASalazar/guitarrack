@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Guitar
 from .forms import RestringingForm
@@ -35,4 +35,9 @@ class GuitarDelete(DeleteView):
     success_url = '/guitars'
 
 def add_strings(request, guitar_id):
-    pass
+    form = RestringingForm(request.POST)
+    if form.is_valid():
+        new_strings = form.save(commit=False)
+        new_strings.guitar_id = guitar_id
+        new_strings.save()
+    return redirect('detail', guitar_id=guitar_id)

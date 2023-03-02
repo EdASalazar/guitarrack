@@ -28,4 +28,6 @@ class Restringing(models.Model):
     guitar = models.ForeignKey(Guitar, on_delete=models.CASCADE)
     def __str__(self):
         return f"{self.get_string_display()} on {self.date}"
+    class Meta: 
+        ordering = ['-date']
     
