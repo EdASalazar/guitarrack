@@ -52,3 +52,12 @@ class PedalDetail(DetailView):
 
 class PedalCreate(CreateView):
     model = Pedal
+    fields = '__all__'
+
+class PedalUpdate(UpdateView):
+    model = Pedal
+    fields = '__all__'
+
+class PedalDelete(DeleteView):
+    model = Pedal
+    success_url = '/pedals'
