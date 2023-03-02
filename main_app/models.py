@@ -30,4 +30,7 @@ class Restringing(models.Model):
         return f"{self.get_string_display()} on {self.date}"
     class Meta: 
         ordering = ['-date']
-    
+    # try to figure this out. 
+    # want it to tell you to change strings if they are a month old
+    # def needs_fresh_strings(self):
+    #     return self.strings_set.filter(date=date.today())
