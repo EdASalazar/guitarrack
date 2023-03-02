@@ -21,7 +21,7 @@ class Guitar(models.Model):
 class Restringing(models.Model):
     date = models.DateField()
     restring = models.CharField(
-        max_lenght=2,
+        max_length=2,
         choices=STRINGS,
         default=STRINGS[0][0]
         )
