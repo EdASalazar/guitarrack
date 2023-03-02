@@ -1,6 +1,13 @@
 from django.db import models
 from django.urls import reverse
 
+STRINGS = (
+    ('NP', 'Nickel-plated steel'),
+    ('PN', 'Pure nickel'),
+    ('SS', 'Stainless steel'),
+    ('NY', 'Nylon'),
+)
+
 # Create your models here.
 class Guitar(models.Model):
     brand = models.CharField(max_length=100)
@@ -10,3 +17,14 @@ class Guitar(models.Model):
         return f'{self.brand} {self.make}'
     def get_absolute_url(self):
         return reverse('detail', kwargs={'guitar_id': self.id})
+    
+class Restringing(models.Model):
+    date = models.DateField()
+    restring = models.CharField(
+        max_lenght=2,
+        choices=STRINGS,
+        default=STRINGS[0][0]
+        )
+    def __str__(self):
+        return f"{self.get_restring_display()} on {self.date}"
+    
