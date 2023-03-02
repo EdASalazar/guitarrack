@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Guitar, Pedal
 from .forms import RestringingForm
 
@@ -45,4 +45,10 @@ def add_strings(request, guitar_id):
 
 
 class PedalList(ListView):
+    model = Pedal
+
+class PedalDetail(DetailView):
+    model = Pedal
+
+class PedalCreate(CreateView):
     model = Pedal
