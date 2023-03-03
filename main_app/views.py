@@ -28,7 +28,7 @@ def guitars_detail(request, guitar_id):
 
 class GuitarCreate(CreateView):
     model = Guitar
-    fields = '__all__'
+    fields = ['brand', 'make', 'color']
 
 class GuitarUpdate(UpdateView):
     model = Guitar
@@ -64,3 +64,11 @@ class PedalUpdate(UpdateView):
 class PedalDelete(DeleteView):
     model = Pedal
     success_url = '/pedals'
+
+def assoc_pedal(request, guitar_id, pedal_id):
+    Guitar.objects.get(id=guitar_id).pedals.add(pedal_id)
+    return redirect('detail', guitar_id=guitar_id)
+
+def unassoc_pedal(request, guitar_id, pedal_id):
+    Guitar.objects.get(id=guitar_id).pedals.remove(pedal_id)
+    return redirect('detail', guitar_id=guitar_id)
