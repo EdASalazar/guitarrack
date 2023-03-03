@@ -19,9 +19,12 @@ def guitars_index(request):
 
 def guitars_detail(request, guitar_id):
     guitar = Guitar.objects.get(id=guitar_id)
+    id_list = guitar.pedals.all().values_list('id')
+    pedals_guitar_doesnt_have = Pedal.objects.exclude(id__in=id_list)
     restringing_form = RestringingForm()
     return render(request, 'guitars/detail.html', 
-                  { 'guitar': guitar, 'restringing_form': restringing_form })
+                  { 'guitar': guitar, 'restringing_form': restringing_form, 
+                   'pedals': pedals_guitar_doesnt_have })
 
 class GuitarCreate(CreateView):
     model = Guitar
