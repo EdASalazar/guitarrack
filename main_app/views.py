@@ -77,7 +77,10 @@ def search_guitars(request):
     if request.method == 'POST':
         searched = request.POST['searched']
         guitars = Guitar.objects.filter(brand__contains=searched)
+        # guitars = Guitar.objects.filter(make__contains=searched)
         pedals = Pedal.objects.filter(brand__contains=searched)
+        # pedals = Pedal.objects.filter(name__contains=searched)
+        # pedals = Pedal.objects.filter(category__contains=searched)
         return render(request, 'guitars/search_guitars.html', {
             'searched': searched, 'guitars': guitars, 'pedals': pedals
             })
