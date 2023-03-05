@@ -86,3 +86,6 @@ def search_guitars(request):
             })
     else:
         return render(request, 'guitars/search_guitars.html', {})
+    
+def guitar_tabs(request):
+    return render(request, 'guitar_tabs.html')
