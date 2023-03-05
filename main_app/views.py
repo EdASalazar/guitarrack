@@ -72,3 +72,14 @@ def assoc_pedal(request, guitar_id, pedal_id):
 def unassoc_pedal(request, guitar_id, pedal_id):
     Guitar.objects.get(id=guitar_id).pedals.remove(pedal_id)
     return redirect('detail', guitar_id=guitar_id)
+
+def search_guitars(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        guitars = Guitar.objects.filter(brand__contains=searched)
+        pedals = Pedal.objects.filter(brand__contains=searched)
+        return render(request, 'guitars/search_guitars.html', {
+            'searched': searched, 'guitars': guitars, 'pedals': pedals
+            })
+    else:
+        return render(request, 'guitars/search_guitars.html', {})

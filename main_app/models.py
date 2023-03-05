@@ -13,7 +13,7 @@ STRINGS = (
 class Pedal(models.Model):
     brand = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    catagory = models.CharField(max_length=100)
+    category = models.CharField(max_length=100)
 
     def __str__(self):
         return f'{self.brand}: {self.name}'
@@ -44,6 +44,7 @@ class Restringing(models.Model):
         )
     
     guitar = models.ForeignKey(Guitar, on_delete=models.CASCADE)
+
     def __str__(self):
         return f"{self.get_string_display()} on {self.date}"
     
