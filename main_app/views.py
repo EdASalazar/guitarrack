@@ -3,10 +3,14 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Guitar, Pedal
 from .forms import RestringingForm
+import requests
+
+
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    response = requests.get('http://www.omdbapi.com/?apikey=acd8ae1a&t=Seinfeld&Season=1').json()
+    return render(request, 'home.html', { 'response': response })
 
 def about(request):
     return render(request, 'about.html')
