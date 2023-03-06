@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Guitar, Pedal
+from .models import Guitar, Pedal, TabDescriptor
 from .forms import RestringingForm
 
 # Create your views here.
