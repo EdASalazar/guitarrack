@@ -5,8 +5,8 @@
 {% if searched %}
     <h1>You Searched For a {{ searched }}</h1>
     <br>
-    {% for guitar in guitars %}
     <div class="row">
+    {% for guitar in guitars %}
         <div class="col s6">
             <a href="{% url 'detail' guitar.id %}" text-decoration="none">
                 <div class="card">
@@ -18,10 +18,10 @@
                 </div>
             </a>  
         </div>
+        {% endfor%}
     </div>
-    {% endfor%}
-    {% for pedal in pedals %}
     <div class="row">
+    {% for pedal in pedals %}
         <a href="{% url 'pedals_detail' pedal.id %}" text-decoration="none">
             <div class="col s6">
                 <div class="card">
@@ -33,9 +33,9 @@
                 </div>
             </div>
         </a>
+    {% endfor %}
     </div>
 
-    {% endfor %}
 
 {% else %}
     <h1>You need to search for your tone first!</h1>
