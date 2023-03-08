@@ -4,7 +4,7 @@
 <div class="row" id="topbarsearch">
     <div class="col s6 col-offset-3">
         <div class="input-group"> 
-            <form action="{% url 'guitar_tabs' %}" method="POST">
+            <form action="{% url 'home' %}" method="POST">
                 {% csrf_token %}
                 <div class="input-field">
                     <input type="search" placeholder="Search Guitars Tabs" name="searched">
@@ -17,12 +17,18 @@
 </div>
 
  <h1>movies</h1>
-
-    <!-- {% for i in response %} -->
-<ul> 
-    <li>MOVIE: {{ response }}</li>
-</ul>  
-<!-- 
-    {% endfor %} -->
+ {% if searched %}
+ <h6>You Searched For {{ searched }}:</h6>
+ <ul>
+   {% for i, j  in response.items %}
     
+   <li>{{i}}: {{j}}</li>
+    <!-- <li>Title : {{ response.Title }}</li>
+    <li>Release : {{ response.Year }}</li>
+    <li>IMDB ID : {{ response.imdbID }}</li>
+    <li>Type of : {{ response.Type }}</li> -->
+    
+   {% endfor %}
+ </ul>  
+{% endif %}
 {% endblock %}

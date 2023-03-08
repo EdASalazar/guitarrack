@@ -8,9 +8,23 @@ import requests
 
 
 # Create your views here.
+# def home(request):
+#     search = {"s": "Star Wars"}
+#     response=requests.get("http://www.omdbapi.com/?apikey=acd8ae1a&", params=search).json()
+#     return render(request, 'home.html', { 'response': response })
+
 def home(request):
-    response = requests.get('http://www.omdbapi.com/?apikey=acd8ae1a&t=Seinfeld&Season=1').json()
-    return render(request, 'home.html', { 'response': response })
+  if request.method == 'POST':
+    searched = request.POST['searched']
+    params = {'s': f'{searched}'}
+    response=requests.get('http://www.omdbapi.com/?apikey=acd8ae1a&', params=params).json()
+    print(response)
+    return render(request, 'home.html', {'searched': searched, 'response': response})
+  else:
+    return render(request, 'home.html', {})
+
+
+
 
 def about(request):
     return render(request, 'about.html')
